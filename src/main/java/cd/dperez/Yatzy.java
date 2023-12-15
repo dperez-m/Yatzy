@@ -115,39 +115,30 @@ public class Yatzy {
         return 0;
     }
 
-    public static int fullHouse(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] tallies;
-        boolean _2 = false;
-        int i;
-        int _2_at = 0;
-        boolean _3 = false;
-        int _3_at = 0;
+    public static int fullHouse(int... dice) {
+        int[] counts = new int[6];
+        boolean pair = false;
+        int pairVal = 0;
+        boolean threeEquals = false;
+        int threeEqualsVal = 0;
 
+        for (int die : dice){
+            counts[die - 1]++;
+        }
 
-
-
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 2) {
-                _2 = true;
-                _2_at = i+1;
+        for (int i = 0; i != 6; i += 1) {
+            if (counts[i] == 2) {
+                pair = true;
+                pairVal = i + 1;
             }
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 3) {
-                _3 = true;
-                _3_at = i+1;
+            if (counts[i] == 3) {
+                threeEquals = true;
+                threeEqualsVal = i + 1;
             }
+        }
 
-        if (_2 && _3)
-            return _2_at * 2 + _3_at * 3;
+        if (pair && threeEquals)
+            return pairVal * 2 + threeEqualsVal * 3;
         else
             return 0;
     }
