@@ -91,6 +91,8 @@ public class YatzyTest {
         assertEquals(9, Yatzy.three_of_a_kind(3,3,3,4,5));
         assertEquals(15, Yatzy.three_of_a_kind(5,3,5,4,5));
         assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,5));
+        assertEquals(0, Yatzy.three_of_a_kind(2,2,3,3,5));
+        assertEquals(12, Yatzy.three_of_a_kind(4,4,4,4,4));
     }
 
     @Test
