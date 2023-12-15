@@ -36,24 +36,18 @@ public class Yatzy {
         return fivesCount * 5;
     }
 
-    public static int sixes(int... dice)
-    {
+    public static int sixes(int... dice) {
         int sixesCount = Math.toIntExact(Arrays.stream(dice).filter(die -> die == 6).count());
         return sixesCount * 6;
     }
 
-    public static int score_pair(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int at;
-        for (at = 0; at != 6; at++)
-            if (counts[6-at-1] >= 2)
-                return (6-at)*2;
+    public static int pair(int... dice) {
+        Arrays.sort(dice);
+        for (int i = dice.length; i > 0; i--){
+            if (dice[i - 1] == dice[i - 2]){
+                return dice[i - 1] * 2;
+            }
+        }
         return 0;
     }
 
