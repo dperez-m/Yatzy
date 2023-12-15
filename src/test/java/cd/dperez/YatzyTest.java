@@ -8,11 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class YatzyTest {
 
     @Test
-    public void chance_scores_sum_of_all_dice() {
-        int expected = 15;
-        int actual = Yatzy.chance(2,3,4,5,1);
-        assertEquals(expected, actual);
-        assertEquals(16, Yatzy.chance(3,3,4,5,1));
+    public void test_chance() {
+        assertEquals(15, Yatzy.chance(2,3,4,5,1));
+        assertEquals(19, Yatzy.chance(3,3,6,6,1));
+        assertEquals(5, Yatzy.chance(1,1,1,1,1));
     }
 
     @Test public void yatzy_scores_50() {
