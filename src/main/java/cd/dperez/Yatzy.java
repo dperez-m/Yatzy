@@ -71,20 +71,7 @@ public class Yatzy {
 
     }
 
-    public static int four_of_a_kind(int... dice) {
-        int[] counts = new int[6];
-
-        for (int die : dice){
-            counts[die - 1]++;
-        }
-
-        for (int i = 0; i < 6; i++)
-            if (counts[i] >= 4)
-                return (i+1) * 4;
-        return 0;
-    }
-
-    public static int three_of_a_kind(int... dice) {
+    public static int threeOfAKind(int... dice) {
         int[] counts = new int[6];
 
        for (int die : dice){
@@ -94,6 +81,19 @@ public class Yatzy {
         for (int i = 0; i < 6; i++)
             if (counts[i] >= 3)
                 return (i+1) * 3;
+        return 0;
+    }
+
+    public static int fourOfAKind(int... dice) {
+        int[] counts = new int[6];
+
+        for (int die : dice){
+            counts[die - 1]++;
+        }
+
+        for (int i = 0; i < 6; i++)
+            if (counts[i] >= 4)
+                return (i+1) * 4;
         return 0;
     }
 
