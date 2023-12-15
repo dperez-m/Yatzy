@@ -1,6 +1,7 @@
 package cd.dperez;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Yatzy {
 
@@ -51,25 +52,23 @@ public class Yatzy {
         return 0;
     }
 
-    public static int two_pair(int d1, int d2, int d3, int d4, int d5)
-    {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int n = 0;
+    public static int doublePair(int... dice) {
+        int pairs = 0;
         int score = 0;
-        for (int i = 0; i < 6; i += 1)
-            if (counts[6-i-1] >= 2) {
-                n++;
-                score += (6-i);
+        int prev = 0;
+        HashSet<Integer> set = new HashSet<Integer>();
+        Arrays.sort(dice);
+        for (int i = dice.length - 1; i >= 0; i--){
+            if (!set.add(dice[i]) && pairs <= 2 && dice[i] != prev){
+                pairs++;
+                score += dice[i];
+                prev = dice[i];
             }
-        if (n == 2)
+        }
+        if (pairs == 2)
             return score * 2;
-        else
-            return 0;
+        return 0;
+
     }
 
     public static int four_of_a_kind(int _1, int _2, int d3, int d4, int d5)
