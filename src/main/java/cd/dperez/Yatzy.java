@@ -72,7 +72,7 @@ public class Yatzy {
     }
 
     public static int four_of_a_kind(int... dice) {
-        int[] counts = new int[dice.length];
+        int[] counts = new int[6];
 
         for (int die : dice){
             counts[die - 1]++;
@@ -85,7 +85,7 @@ public class Yatzy {
     }
 
     public static int three_of_a_kind(int... dice) {
-        int[] counts = new int[dice.length];
+        int[] counts = new int[6];
 
        for (int die : dice){
            counts[die - 1]++;
