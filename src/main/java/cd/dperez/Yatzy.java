@@ -26,46 +26,20 @@ public class Yatzy {
         return threesCount * 3;
     }
 
-    protected int[] dice;
-    public Yatzy(int d1, int d2, int d3, int d4, int _5)
-    {
-        dice = new int[5];
-        dice[0] = d1;
-        dice[1] = d2;
-        dice[2] = d3;
-        dice[3] = d4;
-        dice[4] = _5;
+    public static int fours(int... dice) {
+        int foursCount = Math.toIntExact(Arrays.stream(dice).filter(die -> die == 4).count());
+        return foursCount * 4;
     }
 
-    public int fours()
-    {
-        int sum;
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
+    public static int fives(int... dice) {
+        int fivesCount = Math.toIntExact(Arrays.stream(dice).filter(die -> die == 5).count());
+        return fivesCount * 5;
     }
 
-    public int fives()
+    public static int sixes(int... dice)
     {
-        int s = 0;
-        int i;
-        for (i = 0; i < dice.length; i++)
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
-    }
-
-    public int sixes()
-    {
-        int sum = 0;
-        for (int at = 0; at < dice.length; at++)
-            if (dice[at] == 6)
-                sum = sum + 6;
-        return sum;
+        int sixesCount = Math.toIntExact(Arrays.stream(dice).filter(die -> die == 6).count());
+        return sixesCount * 6;
     }
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5)
