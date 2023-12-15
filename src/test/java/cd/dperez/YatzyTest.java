@@ -71,16 +71,18 @@ public class YatzyTest {
     }
 
     @Test
-    public void one_pair() {
+    public void testPair() {
         assertEquals(6, Yatzy.pair(3,4,3,5,6));
         assertEquals(10, Yatzy.pair(5,3,3,3,5));
         assertEquals(12, Yatzy.pair(5,3,6,6,5));
+        assertEquals(0,Yatzy.pair(1,2,3,4,5));
     }
 
     @Test
-    public void two_Pair() {
+    public void testDoublePair() {
         assertEquals(16, Yatzy.doublePair(3,3,5,4,5));
         assertEquals(16, Yatzy.doublePair(3,3,5,5,5));
+        assertEquals(0, Yatzy.doublePair(1,1,2,3,4));
     }
 
     @Test

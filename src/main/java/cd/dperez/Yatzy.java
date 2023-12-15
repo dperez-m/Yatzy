@@ -44,7 +44,7 @@ public class Yatzy {
 
     public static int pair(int... dice) {
         Arrays.sort(dice);
-        for (int i = dice.length; i > 0; i--){
+        for (int i = dice.length; i > 1; i--){
             if (dice[i - 1] == dice[i - 2]){
                 return dice[i - 1] * 2;
             }
